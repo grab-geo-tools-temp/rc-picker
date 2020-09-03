@@ -215,7 +215,7 @@ function InnerRangePicker<DateType>(props: RangePickerProps<DateType>) {
     autoComplete = 'off',
   } = props as MergedRangePickerProps<DateType>;
 
-  const needConfirmButton: boolean = (picker === 'date' && !!showTime) || picker === 'time';
+  const needConfirmButton: boolean = (picker === 'date' && !!showTime);
 
   // We record opened status here in case repeat open with picker
   const openRecordsRef = useRef<Record<number, boolean>>({});
@@ -1008,7 +1008,7 @@ function InnerRangePicker<DateType>(props: RangePickerProps<DateType>) {
   const onContextSelect = (date: DateType, type: 'key' | 'mouse' | 'submit') => {
     const values = updateValues(selectedValue, date, mergedActivePickerIndex);
 
-    if (type === 'submit' || (type !== 'key' && !needConfirmButton)) {
+    if (type === 'submit') {
       // triggerChange will also update selected values
       triggerChange(values, mergedActivePickerIndex);
     } else {
