@@ -24,8 +24,7 @@ node_modules
 .cache
 assets/**/*.css
 build
-lib
-es
+
 yarn.lock
 package-lock.json
 coverage/
